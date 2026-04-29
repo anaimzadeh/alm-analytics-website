@@ -5,6 +5,23 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
+const DEFAULT_ALLOWED_HOSTS = [
+  "localhost",
+  "127.0.0.1",
+  "0.0.0.0",
+  ".replit.dev",
+  ".repl.co",
+];
+
+function parseCsvEnv(value: string | undefined): string[] {
+  return value
+    ? value
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean)
+    : [];
+}
+
 const rawPort = process.env.PORT;
 
 if (!rawPort) {
@@ -26,6 +43,11 @@ if (!basePath) {
     "BASE_PATH environment variable is required but was not provided.",
   );
 }
+
+const allowedHosts =
+  parseCsvEnv(process.env.VITE_ALLOWED_HOSTS).length > 0
+    ? parseCsvEnv(process.env.VITE_ALLOWED_HOSTS)
+    : DEFAULT_ALLOWED_HOSTS;
 
 export default defineConfig({
   base: basePath,
@@ -58,7 +80,7 @@ export default defineConfig({
   server: {
     port,
     host: "0.0.0.0",
-    allowedHosts: true,
+    allowedHosts,
     fs: {
       strict: true,
     },
@@ -66,6 +88,6 @@ export default defineConfig({
   preview: {
     port,
     host: "0.0.0.0",
-    allowedHosts: true,
+    allowedHosts,
   },
 });

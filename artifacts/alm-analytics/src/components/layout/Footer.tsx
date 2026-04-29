@@ -25,8 +25,8 @@ export function Footer() {
             <p className="mt-4 text-sm text-muted-foreground max-w-sm">
               Data systems that actually get used.
             </p>
-            <a href="mailto:hello@almanalytics.net" className="inline-block mt-6 text-sm font-medium text-primary hover:underline">
-              hello@almanalytics.net
+            <a href="mailto:howdy@almanalytics.net" className="inline-block mt-6 text-sm font-medium text-primary hover:underline">
+              howdy@almanalytics.net
             </a>
           </div>
 

@@ -24,7 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const CONTACT_EMAIL = "hello@almanalytics.net";
+const CONTACT_EMAIL = "howdy@almanalytics.net";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required." }),
@@ -86,11 +86,11 @@ export default function Contact() {
             <div className="bg-card border border-border rounded-xl p-8">
               <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">Direct Email</h3>
               <a 
-                href="mailto:hello@almanalytics.net" 
+                href="mailto:howdy@almanalytics.net" 
                 className="text-2xl font-medium text-foreground hover:text-primary transition-colors flex items-center group"
               >
                 <Mail className="mr-3 h-6 w-6 text-primary" />
-                hello@almanalytics.net
+                howdy@almanalytics.net
                 <ArrowRight className="ml-3 h-5 w-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-muted-foreground" />
               </a>
             </div>

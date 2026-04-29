@@ -37,11 +37,11 @@ export default function About() {
                   Get in touch
                 </p>
                 <a
-                  href="mailto:hello@almanalytics.net"
+                  href="mailto:howdy@almanalytics.net"
                   className="inline-flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition-colors mb-4"
                 >
                   <Mail className="h-4 w-4 text-primary" />
-                  hello@almanalytics.net
+                  howdy@almanalytics.net
                 </a>
                 <Button variant="outline" className="w-full justify-between" asChild>
                   <Link href="/contact">

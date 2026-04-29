@@ -11,6 +11,11 @@ out-tsc
 # dependencies
 node_modules
 
+# environment / secrets
+.env
+.env.*
+!.env.example
+
 # IDEs and editors
 /.idea
 .project
@@ -31,11 +36,20 @@ node_modules
 /.sass-cache
 /connect.lock
 /coverage
+/playwright-report
+/test-results
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 testem.log
 /typings
+.work-folder-info
+.vite/
+.turbo/
+.vercel/
+.netlify/
 
 # System Files
 .DS_Store

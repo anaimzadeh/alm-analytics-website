@@ -7,8 +7,54 @@ interface ProjectEmbedProps {
   title: string;
 }
 
+const DEFAULT_ALLOWED_EMBED_HOSTS = [
+  "localhost",
+  "127.0.0.1",
+  "streamlit.app",
+  "share.streamlit.io",
+  "shinyapps.io",
+  "observablehq.com",
+  "public.tableau.com",
+  "app.powerbi.com",
+];
+
+function parseCsvEnv(value: string | undefined): string[] {
+  return value
+    ? value
+        .split(",")
+        .map((item) => item.trim().toLowerCase())
+        .filter(Boolean)
+    : [];
+}
+
+const allowedEmbedHosts =
+  parseCsvEnv(import.meta.env.VITE_ALLOWED_EMBED_HOSTS).length > 0
+    ? parseCsvEnv(import.meta.env.VITE_ALLOWED_EMBED_HOSTS)
+    : DEFAULT_ALLOWED_EMBED_HOSTS;
+
+function isAllowedEmbedUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    const hostname = parsed.hostname.toLowerCase();
+    const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1";
+
+    if (parsed.protocol !== "https:" && !isLocalhost) {
+      return false;
+    }
+
+    return allowedEmbedHosts.some(
+      (allowedHost) =>
+        hostname === allowedHost || hostname.endsWith(`.${allowedHost}`),
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function ProjectEmbed({ embedUrl, fallbackUrl, title }: ProjectEmbedProps) {
   if (!embedUrl) return null;
+
+  const canEmbed = isAllowedEmbedUrl(embedUrl);
 
   return (
     <div className="space-y-4 my-8">
@@ -25,14 +71,21 @@ export function ProjectEmbed({ embedUrl, fallbackUrl, title }: ProjectEmbedProps
           )}
         </div>
         <div className="flex-grow relative">
-          <iframe
-            src={embedUrl}
-            title={`${title} application preview`}
-            className="absolute inset-0 w-full h-full border-0"
-            allow="fullscreen"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          />
+          {canEmbed ? (
+            <iframe
+              src={embedUrl}
+              title={`${title} application preview`}
+              className="absolute inset-0 w-full h-full border-0"
+              allow="fullscreen"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              sandbox="allow-scripts allow-forms allow-popups-to-escape-sandbox"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center p-8 text-center text-sm text-muted-foreground">
+              This application is available through the external link, but it is not on the approved embed list.
+            </div>
+          )}
         </div>
       </div>
       <p className="text-sm text-muted-foreground text-center">
