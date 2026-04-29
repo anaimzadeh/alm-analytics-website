@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Database, BrainCircuit, Bot, TerminalSquare } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
@@ -14,12 +14,12 @@ export default function Home() {
 
   const featuredProjects = projects.slice(0, 3);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
@@ -71,9 +71,15 @@ export default function Home() {
             </motion.div>
             
             <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground font-medium mb-4 uppercase tracking-widest">Core Capabilities</p>
+              <p className="text-sm text-muted-foreground font-medium mb-4 uppercase tracking-widest">What that looks like</p>
               <div className="flex flex-wrap gap-3">
-                {["Data Science", "Analytics Engineering", "AI/ML Systems", "Dashboard Development", "Government & Commercial Experience"].map((chip) => (
+                {[
+                  "Built dashboards and data pipelines for live programs",
+                  "Worked across government and defense-adjacent contexts",
+                  "Python, SQL, R, and modern data tooling",
+                  "Reproducible analytics and clean data models",
+                  "End-to-end: data → dashboard → decision",
+                ].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 bg-secondary/50 text-secondary-foreground text-sm rounded-md font-medium border border-border/50">
                     {chip}
                   </span>
@@ -84,52 +90,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brief Services Intro */}
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 md:flex md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">Technical Expertise</h2>
-              <p className="text-muted-foreground text-lg">
-                Building reliable infrastructure to support operational decisions.
-              </p>
-            </div>
-            <Button variant="link" className="mt-4 md:mt-0 text-primary hover:text-primary/80 group" asChild>
-              <Link href="/services">
-                View all services <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: BarChart3, title: "Analytics Dashboards", desc: "Interactive dashboards and KPI reporting systems for operational decision-making." },
-              { icon: Database, title: "Data Engineering", desc: "Reliable pipelines, APIs, data models, and warehouse-ready datasets." },
-              { icon: BrainCircuit, title: "Data Science & ML", desc: "Forecasting, classification, experimentation, evaluation, and applied modeling." }
-            ].map((service, i) => (
-              <div key={i} className="p-6 rounded-xl bg-background border border-border">
-                <service.icon className="h-10 w-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Projects */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-12 md:flex md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">Featured Work</h2>
+              <h2 className="text-3xl font-bold tracking-tight mb-4">Selected Work</h2>
               <p className="text-muted-foreground text-lg">
-                Recent dashboards, models, and pipelines shipped to production.
+                A few projects worth opening — pilots, prototypes, and working implementations across analytics, data engineering, and applied AI.
               </p>
             </div>
             <Button variant="link" className="mt-4 md:mt-0 text-primary hover:text-primary/80 group" asChild>
               <Link href="/projects">
-                View project gallery <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                See all projects <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>
@@ -146,12 +119,12 @@ export default function Home() {
       <section className="py-24 bg-secondary/30 border-y border-border">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-6">Proven Performance</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-6">Where the work has been used</h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Delivering specialized analytics and data engineering support for government-adjacent workforce programs, data platform modernization initiatives, and applied ML systems.
+              Engagements have spanned a cyber workforce development program, a data platform modernization effort, and applied AI/RAG evaluation work — anonymized summaries are on the past performance page.
             </p>
             <Button size="lg" variant="default" asChild>
-              <Link href="/past-performance">Review Past Performance</Link>
+              <Link href="/past-performance">Review past performance</Link>
             </Button>
           </div>
         </div>
@@ -161,12 +134,12 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="p-12 rounded-2xl bg-card border border-border text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Ready to operationalize your data?</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Have a problem worth scoping?</h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-              Whether you need a bespoke dashboard, a robust data pipeline, or an applied machine learning solution, let's discuss your technical requirements.
+              Send a short note about the data, the decision it should support, and where things currently break. A reply usually lands within a couple of business days.
             </p>
             <Button size="lg" asChild>
-              <Link href="/contact">Start a Conversation</Link>
+              <Link href="/contact">Start a conversation</Link>
             </Button>
           </div>
         </div>

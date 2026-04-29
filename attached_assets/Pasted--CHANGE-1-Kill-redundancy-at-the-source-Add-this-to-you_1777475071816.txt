@@ -1,0 +1,139 @@
+🔧 CHANGE 1 — Kill redundancy at the source
+
+Add this to your prompt:
+
+GLOBAL COPY CONSTRAINTS
+
+- Do NOT repeat the same sentence or phrasing across sections (especially hero, footer, and about)
+- Each section must introduce NEW information, not restate positioning
+- The footer tagline must be a shortened variant (max 8 words), not a repeat of the hero
+🔧 CHANGE 2 — Replace “capabilities” with “signals”
+
+Replace:
+
+Credibility row chips:
+Data Science · Analytics Engineering · AI/ML Systems · Dashboard Development · Government & Commercial Experience
+
+With:
+
+Credibility row should be evidence-based, not generic capabilities. Replace with signals such as:
+
+- Built production dashboards and data pipelines
+- Experience with government and defense-adjacent programs
+- Python, SQL, R, and modern data tooling
+- Focus on reproducible analytics and clean data models
+- End-to-end implementation (data → dashboard → decision)
+
+👉 This immediately increases credibility.
+
+🔧 CHANGE 3 — Force differentiation in projects
+
+Add:
+
+PROJECT COPY RULES
+
+- Each project must use a DIFFERENT narrative structure
+- Do not repeat "Problem Solved" format verbatim across all cards
+- Vary structure across:
+  - "Context"
+  - "Challenge"
+  - "Why it mattered"
+  - "What changed"
+- Avoid identical sentence patterns
+🔧 CHANGE 4 — Tone realism constraint (critical)
+
+Add:
+
+REALISM CONSTRAINT
+
+- Avoid overstating scale or maturity
+- Do not imply enterprise production systems unless explicitly demonstrated
+- Prefer phrasing like:
+  - "prototype"
+  - "framework"
+  - "analysis"
+  - "working implementation"
+- Only use "production" when clearly justified
+🔧 CHANGE 5 — Collapse Services page (high impact)
+
+Replace:
+
+SERVICES PAGE
+
+With:
+
+SERVICES PAGE
+
+- Keep this page minimal
+- Do NOT restate project capabilities
+- Frame services as "ways to engage", not "things I can do"
+
+Structure:
+- Short intro (2–3 sentences)
+- 3 engagement types:
+  1. Build (dashboards, pipelines, models)
+  2. Prototype (rapid technical validation)
+  3. Advisory (architecture, evaluation, planning)
+
+- Each with 1–2 sentences max
+
+👉 This removes redundancy and feels more senior.
+
+🔧 CHANGE 6 — About page: sharpen positioning
+
+Add:
+
+ABOUT PAGE RULES
+
+- Avoid generic consulting language
+- Emphasize:
+  - hands-on implementation
+  - ability to ship working systems
+  - bridging strategy and execution
+
+- Remove any phrasing that could apply to a generic consulting firm
+🔧 CHANGE 7 — Footer compression
+
+Replace footer requirement with:
+
+FOOTER
+
+- Use a short tagline (max 6–8 words)
+- Example style:
+  "Data systems that actually get used"
+- Do NOT repeat hero messaging
+🧠 5. What’s already strong (don’t lose this)
+
+You’ve actually got three high-value elements most people miss:
+
+✅ Project-first structure
+
+This is the biggest win — keep it.
+
+✅ Private client abstraction
+
+This is exactly how defense-adjacent work should be shown.
+
+✅ Technical stack visibility
+
+This builds real credibility fast.
+
+🧩 6. If I were to summarize your refinement goal
+
+You’re moving from:
+
+“Consulting website”
+
+To:
+
+“Technical operator portfolio with consulting entry point”
+
+That’s the correct move.
+
+🚀 7. One-line guiding principle
+
+Use this as your mental filter:
+
+“Would another consultant write this exact sentence?”
+
+If yes → rewrite it.

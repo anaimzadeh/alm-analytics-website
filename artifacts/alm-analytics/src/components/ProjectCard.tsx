@@ -33,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardContent className="flex-grow space-y-4 text-sm">
         <p className="text-foreground/90 font-medium">{project.shortDescription}</p>
         <div className="space-y-1">
-          <span className="text-muted-foreground text-xs font-bold uppercase tracking-wider">Problem Solved</span>
+          <span className="text-muted-foreground text-xs font-bold uppercase tracking-wider">{project.narrativeLabel ?? "Context"}</span>
           <p className="text-muted-foreground line-clamp-3">{project.problemSolved}</p>
         </div>
         

@@ -20,7 +20,7 @@ export function Footer() {
               ALM Analytics
             </Link>
             <p className="mt-4 text-sm text-muted-foreground max-w-sm">
-              Data science, analytics, and AI systems for mission-driven decisions. Turning messy operational data into reliable decision-support tools.
+              Data systems that actually get used.
             </p>
             <a href="mailto:hello@almanalytics.net" className="inline-block mt-6 text-sm font-medium text-primary hover:underline">
               hello@almanalytics.net

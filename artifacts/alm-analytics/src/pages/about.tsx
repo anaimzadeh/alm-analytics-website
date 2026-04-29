@@ -48,35 +48,31 @@ export default function About() {
             {/* Content Column */}
             <div className="md:col-span-8 prose prose-invert prose-lg max-w-none text-muted-foreground">
               <p className="text-2xl text-foreground font-light leading-relaxed mb-8">
-                ALM Analytics is a specialized data science and analytics engineering practice bridging the gap between operational strategy and technical implementation.
+                A hands-on data science and analytics engineering practice — the person writing the SQL, the dbt models, the Streamlit app, and the evaluation harness is the same person you'll be talking to.
               </p>
-              
+
               <p>
-                Too often, mission-driven organizations and defense-adjacent programs are stuck between two extremes: high-level strategic advice that produces no working code, or generic IT implementations that miss the nuances of analytical data.
+                Most engagements start in the awkward middle of a problem: there is data, there is a decision someone needs to make, and the path between the two is full of spreadsheets, exports, and undocumented assumptions. The work is usually some mix of cleaning that path up, building the missing piece, and leaving behind something the team can actually maintain.
               </p>
-              
+
               <p>
-                I operate in the space between. As a practitioner who builds data pipelines, writes analytical code, and architects ML systems, I deliver production-minded data products—dashboards, models, and workflows—that provide clarity to program managers and decision-makers.
-              </p>
-              
-              <p>
-                Experience spans across non-profits, mid-market businesses, prime contractors, and government-adjacent programs. The common thread is always a messy operational data environment that needs to be wrangled into reliable, secure, and reproducible intelligence.
+                That same scope shows up across cyber workforce development programs, data platform modernization efforts, nonprofits running data-heavy operations, and commercial teams trying to put a useful dashboard or AI workflow in front of real users. The deliverable changes — a pipeline, a model, a notebook, a dashboard, a RAG evaluation — but the operating mode does not: ship a working artifact, document it, and hand it over.
               </p>
 
               <div className="bg-card border border-border p-6 rounded-xl mt-10 not-prose">
-                <h3 className="text-foreground font-semibold text-xl mb-4">Core Philosophy</h3>
+                <h3 className="text-foreground font-semibold text-xl mb-4">How the work tends to go</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start">
                     <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 mr-3 shrink-0" />
-                    <span><strong>Code over slides:</strong> Functioning prototypes clarify requirements faster than written specifications.</span>
+                    <span><strong>Working artifact first.</strong> A scrappy prototype usually surfaces the real requirements faster than a spec document.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 mr-3 shrink-0" />
-                    <span><strong>Reproducibility is paramount:</strong> Analytical results must be traceable from the source data to the final dashboard.</span>
+                    <span><strong>Code, not slides.</strong> Analyses, dashboards, and pipelines are checked in, parameterized, and re-runnable.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 mr-3 shrink-0" />
-                    <span><strong>Security by design:</strong> In defense and commercial environments, secure architecture cannot be an afterthought.</span>
+                    <span><strong>Designed to be handed off.</strong> Whatever ships includes the docs, tests, and conventions another engineer can pick up.</span>
                   </li>
                 </ul>
               </div>
