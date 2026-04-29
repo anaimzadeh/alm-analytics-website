@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "ALM Analytics"
+version = "1.0.0"
+id = "artifacts/alm-analytics"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24206
+
+[services.development]
+run = "pnpm --filter @workspace/alm-analytics run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/alm-analytics", "run", "build" ]
+publicDir = "artifacts/alm-analytics/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24206"
+BASE_PATH = "/"

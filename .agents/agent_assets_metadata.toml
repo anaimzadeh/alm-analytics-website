@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "2WGiKViepCFB_e6W57GQj"
+uri = "file://artifacts/alm-analytics/public/hero-bg.png"
+type = "image"
+title = "Abstract data visualization dashboard hero"
+
+[[generated]]
+id = "PtzISK1ccVz33ysDiCGRX"
+uri = "file://artifacts/alm-analytics/public/founder-avatar.png"
+type = "image"
+title = "Abstract professional portrait avatar"

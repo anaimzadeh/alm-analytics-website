@@ -1,0 +1,289 @@
+You are an expert full-stack web developer, UX designer, and conversion strategist.
+
+Build a modern, professional website for my data science consulting and programming services business:
+
+ALM Analytics
+Domain: almanalytics.net
+Deployment target: Cloudflare Pages or Cloudflare-hosted static site, with source code developed in Replit.
+
+PRIMARY PURPOSE
+Create an active professional web presence that showcases real data science, analytics, programming, and AI/ML projects.
+
+The website should function as both:
+1. A consulting lead-generation site
+2. A technical project portfolio where I can embed or link to:
+   - Streamlit dashboards
+   - Shiny apps
+   - Quarto notebooks
+   - Power BI dashboards
+   - GitHub repositories
+   - case studies / writeups
+
+TARGET AUDIENCE
+The site should appeal to:
+- Government and defense-adjacent program managers
+- Nonprofits managing data-heavy programs
+- Small and mid-size businesses needing analytics or automation
+- Commercial clients evaluating my technical credibility
+- Prime contractors looking for data science subcontractors
+
+They should immediately understand that I can build practical, production-minded data systems, dashboards, and AI-enabled workflows.
+
+CORE POSITIONING
+ALM Analytics helps organizations turn messy operational data into reliable analytics, dashboards, models, and decision-support tools.
+
+Tone:
+- Technical but readable
+- Professional but not corporate-generic
+- Mission-focused
+- Clear, credible, and concise
+
+DESIGN DIRECTION
+Create a clean, modern, portfolio-forward website inspired by:
+- Vercel
+- Observable
+- Posit
+- Stripe
+- Linear
+
+Visual style:
+- Dark navy / near-black primary background
+- White or light-gray content sections
+- Muted blue or teal accent color
+- Clean sans-serif typography
+- Strong card-based layout
+- Plenty of whitespace
+- Subtle animations only
+- Mobile-first responsive design
+
+SITE ARCHITECTURE
+
+Build the site with these pages/sections:
+
+1. HOME
+
+Hero section:
+- Headline: “Data science, analytics, and AI systems for mission-driven decisions.”
+- Subheadline: “ALM Analytics builds dashboards, data pipelines, machine learning workflows, and decision-support tools for organizations that need clarity from complex data.”
+- Primary CTA: “View Projects”
+- Secondary CTA: “Contact Me”
+
+Include a small credibility row:
+- Data Science
+- Analytics Engineering
+- AI/ML Systems
+- Dashboard Development
+- Government & Commercial Experience
+
+2. PROJECTS / PORTFOLIO
+
+This is the most important section.
+
+Create a filterable project gallery with cards.
+
+Each project card should include:
+- Project title
+- Project type tag:
+  - Streamlit App
+  - Shiny Dashboard
+  - Quarto Notebook
+  - Power BI Dashboard
+  - Machine Learning
+  - Data Engineering
+  - AI/RAG
+- Short description
+- Problem solved
+- Tools used
+- Status:
+  - Live Demo
+  - Case Study
+  - GitHub
+  - Private Client Work
+- Buttons:
+  - “Open Demo”
+  - “Read Case Study”
+  - “View Code”
+
+Use placeholder project examples such as:
+- Workforce Program Analytics Dashboard
+- Student Pathway Tracking Data Model
+- RAG Evaluation Toolkit
+- Survey Response Analysis Notebook
+- Secure Data Pipeline Prototype
+- ML Model Monitoring Experiment
+
+Important:
+Some projects may not be publicly shareable because of client confidentiality. Include a “Private Client Work” card style that summarizes capabilities without exposing sensitive details.
+
+3. PROJECT DETAIL TEMPLATE
+
+Create a reusable project detail page/template with:
+
+- Title
+- Executive summary
+- Problem
+- Approach
+- Tools / stack
+- Screenshots or embedded iframe area
+- Live app embed area for Streamlit/Shiny/Quarto
+- Outcomes / impact
+- Lessons learned
+- Links:
+  - GitHub
+  - Live demo
+  - Notebook
+  - Contact about similar work
+
+Include an iframe-friendly embed block so I can paste links to:
+- Streamlit Community Cloud apps
+- Posit Connect / Shiny apps
+- Quarto HTML notebooks
+- Power BI publish-to-web embeds
+
+If embedding is blocked, provide fallback buttons to open the project in a new tab.
+
+4. SERVICES
+
+Create concise service cards:
+
+- Analytics Dashboards
+  “Interactive dashboards and KPI reporting systems for operational decision-making.”
+
+- Data Engineering
+  “Reliable pipelines, APIs, data models, and warehouse-ready datasets.”
+
+- Data Science & Machine Learning
+  “Forecasting, classification, experimentation, evaluation, and applied modeling.”
+
+- AI & Automation
+  “RAG systems, LLM workflows, document intelligence, and workflow automation.”
+
+- Technical Prototyping
+  “Rapid prototypes using Python, R, Streamlit, Shiny, Quarto, and modern cloud tools.”
+
+5. PAST PERFORMANCE
+
+Include a section that satisfies the requirement that the business has past performance in commercial or government work.
+
+Use anonymized case-study language.
+
+Create 3 cards:
+
+A. Government-adjacent workforce analytics
+- Built analytics assets for a cyber workforce development program
+- Supported tracking of participants, institutions, program activities, and outcomes
+- Delivered dashboards, data models, and reporting workflows
+
+B. Data platform modernization
+- Designed data warehouse concepts, canonical data models, and reporting structures
+- Worked with tools such as Microsoft Fabric, Power BI, APIs, and cloud data services
+
+C. AI/RAG and applied ML systems
+- Supported retrieval-augmented generation architecture, evaluation planning, and ML experiment tracking
+- Focused on reproducibility, governance, and measurable retrieval quality
+
+Avoid naming clients unless placeholders are used.
+
+6. ABOUT
+
+Write a concise founder-focused section.
+
+Emphasize:
+- Data science consulting
+- Programming and analytics engineering
+- Experience with mission-driven, defense-adjacent, nonprofit, and commercial data problems
+- Ability to bridge strategy, architecture, and implementation
+
+Include a placeholder for:
+- Founder photo
+- LinkedIn
+- GitHub
+- Resume/CV download
+
+7. CONTACT
+
+Create a simple contact section with:
+- Name
+- Email
+- Organization
+- Project type dropdown
+- Message
+
+Display business email:
+hello@almanalytics.net
+
+CTA copy:
+“Have a dashboard, data pipeline, AI workflow, or analytics problem you want to bring online?”
+
+TECH STACK REQUIREMENTS
+
+Use a simple, maintainable stack suitable for Replit and Cloudflare Pages.
+
+Preferred:
+- Vite
+- React
+- TypeScript
+- Tailwind CSS
+
+Use:
+- Component-based architecture
+- Responsive design
+- Project data stored in a local JSON or TypeScript config file
+- Easy-to-edit project entries
+- Clean routing for project detail pages
+
+Do not require a database for the first version.
+
+Suggested structure:
+- src/components
+- src/pages
+- src/data/projects.ts
+- src/assets
+- src/styles
+
+FUNCTIONAL REQUIREMENTS
+
+- Filter projects by type
+- Search projects by keyword
+- Project detail pages generated from project data
+- Embed component for iframes
+- Fallback external links
+- Contact form UI, even if backend is not connected yet
+- SEO-ready metadata
+- Accessible semantic HTML
+- Mobile responsive
+
+CLOUDFLARE DEPLOYMENT REQUIREMENTS
+
+Prepare the app so it can be deployed to Cloudflare Pages.
+
+Include:
+- Build command: npm run build
+- Output directory: dist
+- Environment variable placeholder for future contact form service
+- README section explaining deployment from Replit/GitHub to Cloudflare Pages
+
+CONTENT REQUIREMENTS
+
+Write polished placeholder copy for every section.
+
+Avoid buzzwords unless clearly tied to deliverables.
+
+Make the website feel credible even before all projects are live.
+
+Use language that signals:
+- practical implementation
+- clean data
+- reproducible analysis
+- dashboards that support decisions
+- AI systems that are evaluated, not just demoed
+
+DELIVERABLES
+
+Generate:
+1. Complete React + TypeScript + Tailwind website
+2. Project gallery
+3. Project detail template
+4. Editable project data file
+5. Contact form UI
+6. README with local run and Cloudflare deployment instructions
