@@ -71,6 +71,8 @@ export default function ProjectDetail() {
                 <img 
                   src={project.heroImage} 
                   alt={`Visualization for ${project.title}`} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover aspect-[2/1]" 
                 />
               </div>

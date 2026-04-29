@@ -23,10 +23,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
 
-// TODO: Replace with actual endpoint using import.meta.env.VITE_CONTACT_ENDPOINT
-// const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
+const CONTACT_EMAIL = "hello@almanalytics.net";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name is required." }),
@@ -38,12 +36,10 @@ const formSchema = z.object({
 
 export default function Contact() {
   useDocumentMeta({
-    title: "Contact | ALM Analytics",
-    description: "Get in touch to discuss your data science and analytics needs.",
+    title: "Contact",
+    description: "Reach out about a dashboard, data pipeline, AI workflow, or analytics problem.",
   });
 
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,18 +54,19 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      toast({
-        title: "Message Sent Successfully",
-        description: "Thank you for reaching out. I will get back to you shortly.",
-      });
-      form.reset();
-    }, 1000);
+    const subject = `Inquiry: ${values.projectType} — ${values.organization}`;
+    const body = [
+      `From: ${values.name} <${values.email}>`,
+      `Organization: ${values.organization}`,
+      `Area of interest: ${values.projectType}`,
+      "",
+      "Project details:",
+      values.message,
+    ].join("\n");
+
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setIsSuccess(true);
   }
 
   return (
@@ -113,12 +110,21 @@ export default function Contact() {
                   <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-2xl font-bold">Inquiry Received</h3>
-                  <p className="text-muted-foreground max-w-md">
-                    Thank you for your interest. I'll review your requirements and respond via email within 1-2 business days.
+                  <h3 className="text-2xl font-bold">Almost there</h3>
+                  <p className="text-muted-foreground max-w-md leading-relaxed">
+                    Your default email client should have opened with the message pre-filled. Hit send and a reply usually lands within a couple of business days.
                   </p>
-                  <Button variant="outline" className="mt-8" onClick={() => setIsSuccess(false)}>
-                    Send Another Message
+                  <p className="text-sm text-muted-foreground/80 max-w-md">
+                    If nothing opened, copy the address below and send manually:
+                  </p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="text-base font-medium text-primary hover:underline"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                  <Button variant="outline" className="mt-6" onClick={() => setIsSuccess(false)}>
+                    Send another message
                   </Button>
                 </div>
               ) : (
@@ -211,8 +217,11 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
-                      {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                    <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                      Submitting opens your email client with the message pre-filled — nothing is sent automatically.
+                    </p>
+                    <Button type="submit" size="lg" className="w-full md:w-auto">
+                      <Mail className="mr-2 h-4 w-4" /> Open in email client
                     </Button>
                   </form>
                 </Form>

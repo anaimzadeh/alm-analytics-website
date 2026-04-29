@@ -1,8 +1,9 @@
 import { Link } from "wouter";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BarChart3, Landmark, Code2, GitBranch, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/ProjectCard";
+import { LogoMark } from "@/components/LogoMark";
 import { projects } from "@/data/projects";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 
@@ -110,41 +111,57 @@ export default function Home() {
                   </svg>
                 </div>
 
+                {/* Center LogoMark watermark */}
+                <div
+                  aria-hidden="true"
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none"
+                >
+                  <LogoMark size={68} className="text-primary opacity-30" />
+                </div>
+
                 {/* Chip labels positioned around pentagon vertices */}
                 {[
                   {
                     label: "Dashboards and pipelines for workforce and program tracking",
                     style: { top: "0%", left: "50%", transform: "translate(-50%, 0)" },
                     align: "text-center",
+                    icon: BarChart3,
                   },
                   {
                     label: "Work across government, defense-adjacent, and nonprofit programs",
                     style: { top: "27%", right: "0%" },
                     align: "text-left",
+                    icon: Landmark,
                   },
                   {
                     label: "Python, R, SQL, dbt, and modern data tooling",
                     style: { bottom: "0%", right: "8%" },
                     align: "text-right",
+                    icon: Code2,
                   },
                   {
                     label: "Reproducible analytics and clean data models",
                     style: { bottom: "0%", left: "8%" },
                     align: "text-left",
+                    icon: GitBranch,
                   },
                   {
                     label: "RAG and ML systems with real evaluation harnesses",
                     style: { top: "27%", left: "0%" },
                     align: "text-right",
+                    icon: Sparkles,
                   },
                 ].map((item, i) => (
                   <div
                     key={item.label}
                     className="absolute z-10"
-                    style={{ ...item.style, maxWidth: 200 }}
+                    style={{ ...item.style, maxWidth: 210 }}
                   >
-                    <div className={`px-3 py-2 bg-secondary/70 backdrop-blur-sm text-secondary-foreground text-xs leading-relaxed rounded-md font-medium border border-border/60 shadow-sm ${item.align}`}>
-                      <span className="text-primary/80 font-mono mr-1.5">0{i + 1}</span>
+                    <div className={`px-3 py-2.5 bg-secondary/70 backdrop-blur-sm text-secondary-foreground text-xs leading-relaxed rounded-md font-medium border border-border/60 shadow-sm ${item.align}`}>
+                      <div className={`flex items-center gap-1.5 mb-1 ${item.align === "text-right" ? "justify-end" : item.align === "text-center" ? "justify-center" : "justify-start"}`}>
+                        <item.icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                        <span className="text-primary/80 font-mono text-[10px] tracking-wider">0{i + 1}</span>
+                      </div>
                       {item.label}
                     </div>
                   </div>
@@ -154,15 +171,16 @@ export default function Home() {
               {/* Mobile: stacked list */}
               <ul className="md:hidden flex flex-col gap-3">
                 {[
-                  "Dashboards and pipelines for workforce and program tracking",
-                  "Work across government, defense-adjacent, and nonprofit programs",
-                  "Python, R, SQL, dbt, and modern data tooling",
-                  "Reproducible analytics and clean data models",
-                  "RAG and ML systems with real evaluation harnesses",
+                  { label: "Dashboards and pipelines for workforce and program tracking", icon: BarChart3 },
+                  { label: "Work across government, defense-adjacent, and nonprofit programs", icon: Landmark },
+                  { label: "Python, R, SQL, dbt, and modern data tooling", icon: Code2 },
+                  { label: "Reproducible analytics and clean data models", icon: GitBranch },
+                  { label: "RAG and ML systems with real evaluation harnesses", icon: Sparkles },
                 ].map((chip, i) => (
-                  <li key={chip} className="flex items-start gap-3 text-secondary-foreground text-sm leading-relaxed">
+                  <li key={chip.label} className="flex items-start gap-3 text-secondary-foreground text-sm leading-relaxed">
+                    <chip.icon className="h-4 w-4 text-primary mt-0.5 shrink-0" aria-hidden="true" />
                     <span className="text-primary/80 font-mono text-xs mt-0.5 shrink-0">0{i + 1}</span>
-                    <span>{chip}</span>
+                    <span>{chip.label}</span>
                   </li>
                 ))}
               </ul>

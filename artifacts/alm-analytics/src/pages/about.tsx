@@ -1,11 +1,13 @@
-import { Linkedin, Github, FileText } from "lucide-react";
+import { Link } from "wouter";
+import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/LogoMark";
 import { useDocumentMeta } from "@/hooks/use-document-meta";
 
 export default function About() {
   useDocumentMeta({
-    title: "About | ALM Analytics",
-    description: "About the founder and the mission of ALM Analytics.",
+    title: "About",
+    description: "ALM Analytics is a hands-on data science and analytics engineering practice.",
   });
 
   return (
@@ -15,32 +17,36 @@ export default function About() {
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-12">About the Practice</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            {/* Image / Links Column */}
+            {/* Brand mark / Contact column */}
             <div className="md:col-span-4 space-y-6">
-              <div className="aspect-square rounded-2xl overflow-hidden border border-border bg-secondary">
-                <img 
-                  src="/founder-avatar.png" 
-                  alt="Founder representation" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231e293b"/><text x="50" y="50" font-family="sans-serif" font-size="40" fill="%2394a3b8" text-anchor="middle" dy=".3em">ALM</text></svg>';
+              <div className="aspect-square rounded-2xl border border-border bg-card flex items-center justify-center relative overflow-hidden">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 opacity-[0.06]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, hsl(180 70% 35%) 1px, transparent 0)",
+                    backgroundSize: "16px 16px",
                   }}
                 />
+                <LogoMark size={140} className="text-primary relative" />
               </div>
-              
-              <div className="space-y-3">
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="h-4 w-4 mr-3" /> Connect on LinkedIn
-                  </a>
-                </Button>
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4 mr-3" /> View GitHub Profile
-                  </a>
-                </Button>
-                <Button variant="secondary" className="w-full justify-start">
-                  <FileText className="h-4 w-4 mr-3" /> Download Resume / CV
+
+              <div className="rounded-xl border border-border bg-card p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+                  Get in touch
+                </p>
+                <a
+                  href="mailto:hello@almanalytics.net"
+                  className="inline-flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition-colors mb-4"
+                >
+                  <Mail className="h-4 w-4 text-primary" />
+                  hello@almanalytics.net
+                </a>
+                <Button variant="outline" className="w-full justify-between" asChild>
+                  <Link href="/contact">
+                    Start a conversation <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </div>
