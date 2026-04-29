@@ -3,7 +3,7 @@
 This is a complete, static presentation website for ALM Analytics, built with React, Vite, and Tailwind CSS.
 
 ## Overview
-ALM Analytics is a data science, analytics, and AI/ML consulting practice. The site is presentation-first, with no backend API hooks required. All project data is stored locally in `src/data/projects.ts`.
+ALM Analytics is a data science, analytics, and AI/ML consulting practice. The site is presentation-first and stores project data locally in `src/data/projects.ts`. The contact form uses a Cloudflare Pages Function at `/api/contact` to send email through Resend.
 
 ## Development
 
@@ -35,7 +35,12 @@ This site is fully static and ready to be hosted on Cloudflare Pages (or similar
 - **Build Command**: `npm run build` (or `pnpm build` if configured)
 - **Build Output Directory**: `dist/public`
 - **Environment Variables**:
-  - Set `VITE_CONTACT_ENDPOINT` if you wire up a contact form submission service in the future.
+  - `RESEND_API_KEY`: Resend API key used by the Pages Function.
+  - `CONTACT_TO_EMAIL`: Destination inbox for contact form notifications, for example `howdy@almanalytics.net`.
+  - `CONTACT_FROM_EMAIL`: Verified Resend sender, for example `ALM Analytics <contact@almanalytics.net>`.
+  - `VITE_CONTACT_ENDPOINT`: Optional browser-side override for the contact endpoint. Defaults to `/api/contact`.
+
+The Pages project root must be `artifacts/alm-analytics` for Cloudflare to discover `functions/api/contact.ts`.
 
 ## Editing Content
 - **Projects**: Edit `src/data/projects.ts` to add or modify project case studies and demos.

@@ -32,6 +32,7 @@ const formSchema = z.object({
   organization: z.string().min(2, { message: "Organization is required." }),
   projectType: z.string().min(1, { message: "Please select a project type." }),
   message: z.string().min(10, { message: "Please provide a brief message." }),
+  website: z.string().optional(),
 });
 
 export default function Contact() {
@@ -41,6 +42,7 @@ export default function Contact() {
   });
 
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,23 +52,36 @@ export default function Contact() {
       organization: "",
       projectType: "",
       message: "",
+      website: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const subject = `Inquiry: ${values.projectType} — ${values.organization}`;
-    const body = [
-      `From: ${values.name} <${values.email}>`,
-      `Organization: ${values.organization}`,
-      `Area of interest: ${values.projectType}`,
-      "",
-      "Project details:",
-      values.message,
-    ].join("\n");
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setSubmitError(null);
 
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setIsSuccess(true);
+    const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT || "/api/contact";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      form.reset();
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error);
+      setSubmitError(
+        "Something went wrong while sending your message. You can still reach me directly by email.",
+      );
+    }
   }
 
   return (
@@ -110,12 +125,12 @@ export default function Contact() {
                   <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h3 className="text-2xl font-bold">Almost there</h3>
+                  <h3 className="text-2xl font-bold">Message sent</h3>
                   <p className="text-muted-foreground max-w-md leading-relaxed">
-                    Your default email client should have opened with the message pre-filled. Hit send and a reply usually lands within a couple of business days.
+                    Thanks for reaching out. Your message has been sent and a reply usually lands within a couple of business days.
                   </p>
                   <p className="text-sm text-muted-foreground/80 max-w-md">
-                    If nothing opened, copy the address below and send manually:
+                    Prefer email, or want to add more detail?
                   </p>
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
@@ -130,6 +145,14 @@ export default function Contact() {
               ) : (
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <input
+                      type="text"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      {...form.register("website")}
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -217,11 +240,26 @@ export default function Contact() {
                       )}
                     />
 
-                    <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                      Submitting opens your email client with the message pre-filled — nothing is sent automatically.
-                    </p>
-                    <Button type="submit" size="lg" className="w-full md:w-auto">
-                      <Mail className="mr-2 h-4 w-4" /> Open in email client
+                    {submitError ? (
+                      <p className="text-sm text-destructive leading-relaxed">
+                        {submitError}{" "}
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4">
+                          {CONTACT_EMAIL}
+                        </a>
+                      </p>
+                    ) : (
+                      <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                        Submitting sends your message securely; your email address is used only for replies.
+                      </p>
+                    )}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full md:w-auto"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      <Mail className="mr-2 h-4 w-4" />
+                      {form.formState.isSubmitting ? "Sending..." : "Send message"}
                     </Button>
                   </form>
                 </Form>
