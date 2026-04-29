@@ -40,7 +40,7 @@ This site is fully static and ready to be hosted on Cloudflare Pages (or similar
   - `CONTACT_FROM_EMAIL`: Verified Resend sender, for example `ALM Analytics <contact@almanalytics.net>`.
   - `VITE_CONTACT_ENDPOINT`: Optional browser-side override for the contact endpoint. Defaults to `/api/contact`.
 
-If the Cloudflare Pages project root is the repository root, Cloudflare discovers the contact function at `functions/api/contact.ts`. If the project root is `artifacts/alm-analytics`, it discovers the equivalent function at `artifacts/alm-analytics/functions/api/contact.ts`.
+The built site also includes `public/_worker.js`, which Cloudflare Pages deploys in advanced mode from the output directory. That worker handles `/api/contact` and falls back to static assets for the rest of the site.
 
 ## Editing Content
 - **Projects**: Edit `src/data/projects.ts` to add or modify project case studies and demos.
