@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/LogoMark";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -30,8 +31,9 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-bold text-lg tracking-tight text-foreground hover:text-primary transition-colors">
-          ALM Analytics
+        <Link href="/" className="group inline-flex items-center gap-2.5 font-bold text-lg tracking-tight text-foreground hover:text-primary transition-colors">
+          <LogoMark size={26} className="text-primary transition-transform group-hover:rotate-[-6deg]" />
+          <span>ALM Analytics</span>
         </Link>
 
         {/* Desktop Nav */}

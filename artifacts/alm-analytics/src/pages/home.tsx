@@ -71,20 +71,101 @@ export default function Home() {
             </motion.div>
             
             <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground font-medium mb-4 uppercase tracking-widest">In practice</p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex items-baseline justify-between gap-4 mb-8">
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-widest">In practice</p>
+                <p className="hidden sm:block text-xs text-muted-foreground/60 italic tracking-wide">Five facets of the practice</p>
+              </div>
+
+              {/* Desktop: pentagon arrangement */}
+              <div className="hidden md:block relative mx-auto" style={{ maxWidth: 880, height: 460 }}>
+                {/* Pentagon SVG - centered */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: 360, height: 360 }}>
+                  <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
+                    <defs>
+                      <radialGradient id="pentaGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="hsl(180 70% 35%)" stopOpacity="0.10" />
+                        <stop offset="100%" stopColor="hsl(180 70% 35%)" stopOpacity="0" />
+                      </radialGradient>
+                    </defs>
+                    <polygon
+                      points="50,8 90,37 75,84 25,84 10,37"
+                      fill="url(#pentaGlow)"
+                      stroke="hsl(180 70% 35%)"
+                      strokeOpacity="0.55"
+                      strokeWidth="0.6"
+                      strokeLinejoin="round"
+                    />
+                    {[
+                      [50, 8],
+                      [90, 37],
+                      [75, 84],
+                      [25, 84],
+                      [10, 37],
+                    ].map(([cx, cy], i) => (
+                      <g key={i}>
+                        <circle cx={cx} cy={cy} r="2.2" fill="hsl(180 70% 35%)" fillOpacity="0.18" />
+                        <circle cx={cx} cy={cy} r="1.1" fill="hsl(180 70% 35%)" />
+                      </g>
+                    ))}
+                  </svg>
+                </div>
+
+                {/* Chip labels positioned around pentagon vertices */}
+                {[
+                  {
+                    label: "Dashboards and pipelines for workforce and program tracking",
+                    style: { top: "0%", left: "50%", transform: "translate(-50%, 0)" },
+                    align: "text-center",
+                  },
+                  {
+                    label: "Work across government, defense-adjacent, and nonprofit programs",
+                    style: { top: "27%", right: "0%" },
+                    align: "text-left",
+                  },
+                  {
+                    label: "Python, R, SQL, dbt, and modern data tooling",
+                    style: { bottom: "0%", right: "8%" },
+                    align: "text-right",
+                  },
+                  {
+                    label: "Reproducible analytics and clean data models",
+                    style: { bottom: "0%", left: "8%" },
+                    align: "text-left",
+                  },
+                  {
+                    label: "RAG and ML systems with real evaluation harnesses",
+                    style: { top: "27%", left: "0%" },
+                    align: "text-right",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={item.label}
+                    className="absolute z-10"
+                    style={{ ...item.style, maxWidth: 200 }}
+                  >
+                    <div className={`px-3 py-2 bg-secondary/70 backdrop-blur-sm text-secondary-foreground text-xs leading-relaxed rounded-md font-medium border border-border/60 shadow-sm ${item.align}`}>
+                      <span className="text-primary/80 font-mono mr-1.5">0{i + 1}</span>
+                      {item.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile: stacked list */}
+              <ul className="md:hidden flex flex-col gap-3">
                 {[
                   "Dashboards and pipelines for workforce and program tracking",
                   "Work across government, defense-adjacent, and nonprofit programs",
                   "Python, R, SQL, dbt, and modern data tooling",
                   "Reproducible analytics and clean data models",
                   "RAG and ML systems with real evaluation harnesses",
-                ].map((chip) => (
-                  <span key={chip} className="px-3 py-1.5 bg-secondary/50 text-secondary-foreground text-sm rounded-md font-medium border border-border/50">
-                    {chip}
-                  </span>
+                ].map((chip, i) => (
+                  <li key={chip} className="flex items-start gap-3 text-secondary-foreground text-sm leading-relaxed">
+                    <span className="text-primary/80 font-mono text-xs mt-0.5 shrink-0">0{i + 1}</span>
+                    <span>{chip}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           </motion.div>
         </div>
