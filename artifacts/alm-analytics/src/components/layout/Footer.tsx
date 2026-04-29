@@ -5,6 +5,7 @@ export function Footer() {
 
   const navLinks = [
     { href: "/projects", label: "Projects" },
+    { href: "/approach", label: "Approach" },
     { href: "/services", label: "Services" },
     { href: "/past-performance", label: "Past Performance" },
     { href: "/about", label: "About" },

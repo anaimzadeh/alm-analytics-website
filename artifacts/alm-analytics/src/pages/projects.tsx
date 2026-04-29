@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, ArrowRight, Workflow } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -50,6 +51,28 @@ export default function ProjectsGallery() {
             A selection of dashboards, pipelines, models, and analytical tools.
           </p>
         </div>
+
+        {/* Approach callout */}
+        <Link
+          href="/approach"
+          className="group block mb-10 rounded-xl border border-border bg-card hover-elevate transition-all p-5 md:p-6"
+        >
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+            <div className="h-12 w-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <Workflow className="h-5 w-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">Framework</p>
+              <h2 className="text-lg md:text-xl font-semibold tracking-tight mb-1">How I Approach Data &amp; AI Systems</h2>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Source &middot; Structure &middot; Retrieval &middot; Evaluation &middot; Output — the same five stages behind every project on this page.
+              </p>
+            </div>
+            <span className="inline-flex items-center text-sm font-medium text-primary shrink-0 group-hover:translate-x-1 transition-transform">
+              Read framework <ArrowRight className="ml-2 h-4 w-4" />
+            </span>
+          </div>
+        </Link>
 
         <div className="flex flex-col md:flex-row gap-6 mb-10 items-start md:items-center">
           <div className="relative w-full md:max-w-md">

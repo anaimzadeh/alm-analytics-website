@@ -18,6 +18,9 @@ export type NarrativeLabel =
   | "Challenge"
   | "Why it mattered"
   | "What changed"
+  | "Starting point"
+  | "Outcome"
+  | "Failure mode"
   | "Problem solved";
 
 export interface Project {
@@ -59,7 +62,7 @@ export const projects: Project[] = [
     title: "Workforce Program Analytics Dashboard",
     type: "Streamlit App",
     shortDescription: "An internal Streamlit app for tracking participants, institutions, and program activities in a cyber workforce development program.",
-    narrativeLabel: "Context",
+    narrativeLabel: "Starting point",
     problemSolved: "Program staff were assembling monthly reports from a stack of spreadsheets and exported reports. The dashboard replaced that with a single, parameterized view of the same numbers.",
     tools: ["Python", "Streamlit", "Pandas", "Plotly", "Postgres"],
     status: "case-study",
@@ -156,7 +159,7 @@ export const projects: Project[] = [
     title: "ML Model Monitoring Experiment",
     type: "Machine Learning",
     shortDescription: "An experiment in catching data drift and silent model degradation for a small classification model.",
-    narrativeLabel: "Challenge",
+    narrativeLabel: "Failure mode",
     problemSolved: "The model behaved well in training and badly in the wild. The monitoring layer made the drift visible instead of waiting for a downstream complaint.",
     tools: ["Python", "Evidently AI", "FastAPI", "Docker"],
     status: "github",
@@ -176,7 +179,7 @@ export const projects: Project[] = [
     title: "Executive KPI Dashboard",
     type: "Power BI Dashboard",
     shortDescription: "A unified Power BI dashboard for a leadership team that previously reconciled cross-departmental reports by hand.",
-    narrativeLabel: "Why it mattered",
+    narrativeLabel: "Outcome",
     problemSolved: "When the same KPI shows three different values in three different decks, leadership stops trusting any of them. The dashboard collapsed the three back into one.",
     tools: ["Power BI", "DAX", "SQL Server Analysis Services"],
     status: "private",
@@ -195,7 +198,7 @@ export const projects: Project[] = [
     title: "Document Intelligence Prototype",
     type: "AI/RAG",
     shortDescription: "A working prototype that extracts structured fields from a backlog of long-form policy and program documents.",
-    narrativeLabel: "What changed",
+    narrativeLabel: "Problem solved",
     problemSolved: "Manual review of each document was the bottleneck. The prototype produced a structured first pass that reviewers could accept, edit, or reject.",
     tools: ["Python", "LangChain", "OpenAI", "Pydantic", "Streamlit"],
     status: "live-demo",

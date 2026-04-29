@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/home";
 import ProjectsGallery from "@/pages/projects";
 import ProjectDetail from "@/pages/project-detail";
+import Approach from "@/pages/approach";
 import Services from "@/pages/services";
 import PastPerformance from "@/pages/past-performance";
 import About from "@/pages/about";
@@ -26,6 +27,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/projects" component={ProjectsGallery} />
           <Route path="/projects/:slug" component={ProjectDetail} />
+          <Route path="/approach" component={Approach} />
           <Route path="/services" component={Services} />
           <Route path="/past-performance" component={PastPerformance} />
           <Route path="/about" component={About} />

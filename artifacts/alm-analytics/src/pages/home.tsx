@@ -51,14 +51,14 @@ export default function Home() {
               variants={itemVariants}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]"
             >
-              Data science, analytics, and AI systems for mission-driven decisions.
+              Dashboards, pipelines, and models that teams actually use.
             </motion.h1>
             
             <motion.p 
               variants={itemVariants}
               className="mt-6 text-xl text-muted-foreground max-w-2xl leading-relaxed font-light"
             >
-              ALM Analytics builds dashboards, data pipelines, machine learning workflows, and decision-support tools for organizations that need clarity from complex data.
+              ALM Analytics is a hands-on data and AI practice. The work is cleaning up the path between messy operational data and the decision someone needs to make on the other side.
             </motion.p>
             
             <motion.div variants={itemVariants} className="mt-10 flex flex-wrap gap-4">
@@ -71,14 +71,14 @@ export default function Home() {
             </motion.div>
             
             <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground font-medium mb-4 uppercase tracking-widest">What that looks like</p>
+              <p className="text-sm text-muted-foreground font-medium mb-4 uppercase tracking-widest">In practice</p>
               <div className="flex flex-wrap gap-3">
                 {[
-                  "Built dashboards and data pipelines for live programs",
-                  "Worked across government and defense-adjacent contexts",
-                  "Python, SQL, R, and modern data tooling",
+                  "Dashboards and pipelines for workforce and program tracking",
+                  "Work across government, defense-adjacent, and nonprofit programs",
+                  "Python, R, SQL, dbt, and modern data tooling",
                   "Reproducible analytics and clean data models",
-                  "End-to-end: data → dashboard → decision",
+                  "RAG and ML systems with real evaluation harnesses",
                 ].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 bg-secondary/50 text-secondary-foreground text-sm rounded-md font-medium border border-border/50">
                     {chip}
@@ -90,6 +90,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured: How I Approach Data & AI Systems */}
+      <section className="py-24 bg-card border-y border-border">
+        <div className="container mx-auto px-4 md:px-6">
+          <Link
+            href="/approach"
+            className="group block max-w-5xl mx-auto rounded-2xl border border-border bg-background p-8 md:p-12 hover-elevate transition-all"
+          >
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div className="max-w-2xl">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Framework</p>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">How I Approach Data &amp; AI Systems</h2>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    A short, reusable framework I lean on when scoping data and AI work. Five stages, where projects usually break, and how I make tradeoffs.
+                  </p>
+                </div>
+                <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform shrink-0">
+                  Read the framework <ArrowRight className="ml-2 h-4 w-4" />
+                </span>
+              </div>
+
+              {/* Mini horizontal flow */}
+              <div className="grid grid-cols-5 gap-2 md:gap-3">
+                {[
+                  { label: "Source", color: "bg-[#1e293b]" },
+                  { label: "Structure", color: "bg-[#1e3a8a]" },
+                  { label: "Retrieval", color: "bg-primary" },
+                  { label: "Evaluation", color: "bg-[#0d9488]" },
+                  { label: "Output", color: "bg-[#16a34a]" },
+                ].map((stage) => (
+                  <div key={stage.label} className="flex flex-col items-center gap-2">
+                    <div className={`h-2 w-full rounded-full ${stage.color}`} />
+                    <span className="text-xs md:text-sm font-medium text-muted-foreground tracking-tight">{stage.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Featured Projects */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -97,7 +138,7 @@ export default function Home() {
             <div className="max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Selected Work</h2>
               <p className="text-muted-foreground text-lg">
-                A few projects worth opening — pilots, prototypes, and working implementations across analytics, data engineering, and applied AI.
+                Dashboards, models, and data systems in use.
               </p>
             </div>
             <Button variant="link" className="mt-4 md:mt-0 text-primary hover:text-primary/80 group" asChild>
@@ -119,9 +160,9 @@ export default function Home() {
       <section className="py-24 bg-secondary/30 border-y border-border">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-6">Where the work has been used</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-6">Recent engagements include</h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Engagements have spanned a cyber workforce development program, a data platform modernization effort, and applied AI/RAG evaluation work — anonymized summaries are on the past performance page.
+              A cyber workforce development program, a data platform modernization effort, and applied AI/RAG evaluation work. Anonymized summaries are on the past performance page.
             </p>
             <Button size="lg" variant="default" asChild>
               <Link href="/past-performance">Review past performance</Link>

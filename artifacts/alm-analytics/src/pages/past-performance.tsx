@@ -35,7 +35,7 @@ export default function PastPerformance() {
         <div className="max-w-3xl mb-16">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Past Performance</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            A selection of anonymized engagements demonstrating capability across defense-adjacent, commercial, and nonprofit missions.
+            Recent engagements have included:
           </p>
         </div>
 

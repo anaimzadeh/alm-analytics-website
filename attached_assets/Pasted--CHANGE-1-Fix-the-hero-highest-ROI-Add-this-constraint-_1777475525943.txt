@@ -1,0 +1,142 @@
+🔧 CHANGE 1 — Fix the hero (highest ROI)
+
+Add this constraint:
+
+HERO CONSTRAINT
+
+- The headline must NOT be generic or interchangeable with other consulting firms
+- Avoid phrases like "AI systems", "mission-driven decisions", or "data science" without context
+- Anchor the headline in a concrete outcome or behavior
+
+Examples of direction (not exact copy):
+- "Dashboards, pipelines, and models that teams actually use"
+- "From messy data to working dashboards and models"
+- "Data systems built to be used, not just presented"
+
+👉 This aligns with your footer, which is already strong.
+
+🔧 CHANGE 2 — Upgrade “What that looks like”
+
+Replace label rule with:
+
+EVIDENCE SECTION LABEL
+
+- Avoid vague section titles like "What that looks like"
+- Use a label that signals credibility and specificity
+
+Preferred styles:
+- "In practice"
+- "How this shows up"
+- "Typical work"
+- "Where this lands"
+
+👉 This keeps your bullets but upgrades framing.
+
+🔧 CHANGE 3 — Enforce project narrative variation (not optional)
+
+Right now the agent intended to vary—but didn’t enforce it.
+
+Add:
+
+PROJECT CARD HARD RULE
+
+- Each project MUST use a different narrative label
+- Do NOT reuse "Problem Solved" more than once across the entire site
+
+Allowed labels:
+- Context
+- Challenge
+- Why it mattered
+- What changed
+- Starting point
+- Outcome
+- Failure mode
+
+This is a strict requirement, not a preference
+🔧 CHANGE 4 — Tighten “Selected Work” section
+
+Add:
+
+FEATURED WORK COPY RULE
+
+- Keep subtitle under 12 words
+- Avoid filler phrases like "worth opening"
+- Make it direct and technical
+
+Examples:
+- "Prototypes, pipelines, and working implementations"
+- "Dashboards, models, and data systems in use"
+🔧 CHANGE 5 — Rewrite Past Performance tone
+
+Add:
+
+PAST PERFORMANCE TONE
+
+- Avoid compliance-style language ("demonstrating capability")
+- Write for a technical evaluator, not procurement documentation
+- Keep it direct and understated
+
+Preferred tone:
+- "Work has included:"
+- "Recent engagements include:"
+- "Examples of recent work:"
+🔧 CHANGE 6 — Align Home tone with About
+
+Add:
+
+TONE CONSISTENCY RULE
+
+- The Home page must match the concreteness of the About page
+- Avoid abstract phrases if a more specific version exists
+- Prefer:
+  - "clean up the path between data and decision"
+  - over:
+  - "enable decision-making"
+🧠 4. What you should NOT change
+
+These are now strong and differentiated:
+
+✅ Footer
+Data systems that actually get used.
+
+Keep this. It’s your best line.
+
+✅ Services → “Ways to engage”
+
+This is now:
+
+senior
+realistic
+non-salesy
+
+Do not revert to service lists.
+
+✅ About page
+
+This is now:
+
+your strongest credibility asset
+very aligned with how technical buyers think
+🧩 5. Final gap (if you want to go elite-level)
+
+You’re now missing only one thing:
+
+specificity anchors
+
+Example upgrades:
+
+Instead of:
+
+Built dashboards and data pipelines for live programs
+
+Better:
+
+Built dashboards and data pipelines for workforce and program tracking
+
+Instead of:
+
+Worked across government and defense-adjacent contexts
+
+Better:
+
+Work across government, defense-adjacent, and nonprofit programs
